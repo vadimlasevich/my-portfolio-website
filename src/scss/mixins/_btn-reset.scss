@@ -1,0 +1,13 @@
+@mixin btn-reset {
+  border: none;
+  background: transparent;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  cursor: pointer;
+  &:active {
+    outline: none;
+  }
+}

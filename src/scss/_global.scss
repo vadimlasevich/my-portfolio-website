@@ -1,0 +1,25 @@
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.shadowed {
+  @include shadowed;
+}
+.btn-reset {
+  @include btn-reset;
+}
+.stop-scroll {
+  @include stop-scroll;
+}
+.shadowed-active {
+  display: block;
+}
+.social-link {
+  width: 4.5rem;
+  height: 4.5rem;
+  transition: all 0.5s ease;
+  &:hover {
+    fill: #fff;
+  }
+}

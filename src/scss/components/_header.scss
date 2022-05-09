@@ -1,0 +1,72 @@
+.header {
+  position: relative;
+  padding: 5rem 0 0 0;
+  color: #f2f2f2;
+  &::before {
+    content: "";
+    width: 1800px;
+    height: 1000px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    top: -400px;
+    left: -600px;
+    bottom: 0;
+    right: 0;
+    background: #315b55;
+    transform: rotate(-10deg);
+  }
+  &::after {
+    content: "";
+    width: 2200px;
+    height: 990px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -2;
+    top: -400px;
+    left: -600px;
+    bottom: 0;
+    right: 0;
+    background: #479085;
+    transform: rotate(-10deg);
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__content {
+    width: 60%;
+  }
+  &__title {
+    font-size: 6rem;
+    line-height: 100%;
+  }
+  &__subtitle {
+    font-size: 3rem;
+    line-height: 130%;
+    margin: 0.3em 0 1em 0;
+  }
+  &__text {
+    font-size: 1.8rem;
+    line-height: 130%;
+  }
+  &__image {
+    width: 35rem;
+    height: 35rem;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    background-image: url("../images/my-photo-min.jpg");
+    background-position: right 80% top 10%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__socials {
+    display: flex;
+    align-items: center;
+    margin-top: 8rem;
+  }
+  &__social-item:not(:last-child) {
+    margin-right: 3rem;
+  }
+}
