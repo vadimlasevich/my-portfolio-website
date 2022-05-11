@@ -1,0 +1,17 @@
+.footer {
+  padding: 4rem 0;
+  background: #315b55;
+  color: #fff;
+  text-align: center;
+  &__title {
+    font-size: 3rem;
+    line-height: 120%;
+    margin-bottom: 1em;
+  }
+  &__socials {
+    justify-content: center;
+  }
+  &__social-item:not(:last-child) {
+    margin-right: 6rem;
+  }
+}
