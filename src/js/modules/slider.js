@@ -10,22 +10,42 @@ export const slider = () => {
   let marginSlideNumber = parseInt(marginSlideStr.substring(0, marginSlideStr.length - 2));
 
   const slideNext = () => {
-    if (count == sliderSlides.length - 2) {
-      count = 0;
-      sliderRoll(count);
+    if (window.innerWidth < 576) {
+      if (count == sliderSlides.length - 1) {
+        count = 0;
+        sliderRoll(count);
+      } else {
+        count++;
+        sliderRoll(count);
+      }
     } else {
-      count++;
-      sliderRoll(count);
+      if (count == sliderSlides.length - 2) {
+        count = 0;
+        sliderRoll(count);
+      } else {
+        count++;
+        sliderRoll(count);
+      }
     }
   };
 
   const slidePrev = () => {
-    if (count == 0) {
-      count = sliderSlides.length - 2;
-      sliderRoll(count);
+    if (window.innerWidth < 576) {
+      if (count == 0) {
+        count = sliderSlides.length - 1;
+        sliderRoll(count);
+      } else {
+        count--;
+        sliderRoll(count);
+      }
     } else {
-      count--;
-      sliderRoll(count);
+      if (count == 0) {
+        count = sliderSlides.length - 2;
+        sliderRoll(count);
+      } else {
+        count--;
+        sliderRoll(count);
+      }
     }
   };
 
