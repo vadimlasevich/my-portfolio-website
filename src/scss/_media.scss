@@ -184,9 +184,6 @@
     &__slide {
       min-width: 100%;
       max-height: 30rem;
-      &:not(:last-child) {
-        margin-right: 5rem;
-      }
     }
     &__slide-btn {
       font-size: 1.7rem;
