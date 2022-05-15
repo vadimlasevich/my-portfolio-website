@@ -17,6 +17,7 @@
     justify-content: space-between;
     padding: 4rem;
     transition: all 0.8s ease;
+    min-width: 0;
   }
   &__slide {
     min-width: 46%;
@@ -40,6 +41,15 @@
       opacity: 0;
     }
     &:hover {
+      .works-slider__slide-btn {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+      &::before {
+        opacity: 1;
+      }
+    }
+    &:target {
       .works-slider__slide-btn {
         opacity: 1;
         transform: translate(-50%, 0);

@@ -5,58 +5,59 @@ export const slider = () => {
   const sliderBtnRight = document.querySelector(".works-slider__btn-right");
 
   let count = 0;
-  let slideWidth = sliderSlides[0].offsetWidth;
-  let slideMargin;
+  let slideWidth;
+  let marginSlideNumber;
 
-  const slideNext = () => {
+  function init() {
+    slideWidth = sliderSlides[0].offsetWidth;
+    let marginSlideStr = getComputedStyle(sliderSlides[0]).marginRight;
+    marginSlideNumber = parseInt(marginSlideStr.substring(0, marginSlideStr.length - 2));
+    return slideWidth, marginSlideNumber;
+  }
+
+  function slideNext() {
+    let slidesLength = sliderSlides.length;
     if (window.innerWidth < 576) {
-      if (count == sliderSlides.length - 1) {
-        count = 0;
-        sliderRoll(count);
-      } else {
-        count++;
-        sliderRoll(count);
-      }
+      slidesLength -= 1;
     } else {
-      if (count == sliderSlides.length - 2) {
-        count = 0;
-        sliderRoll(count);
-      } else {
-        count++;
-        sliderRoll(count);
-      }
+      slidesLength -= 2;
     }
-  };
+    if (count == slidesLength) {
+      count = 0;
+      sliderRoll(count);
+    } else {
+      count++;
+      sliderRoll(count);
+    }
+  }
 
-  const slidePrev = () => {
+  function slidePrev() {
+    let slidesLength = sliderSlides.length;
     if (window.innerWidth < 576) {
-      if (count == 0) {
-        count = sliderSlides.length - 1;
-        sliderRoll(count);
-      } else {
-        count--;
-        sliderRoll(count);
-      }
+      slidesLength -= 1;
     } else {
-      if (count == 0) {
-        count = sliderSlides.length - 2;
-        sliderRoll(count);
-      } else {
-        count--;
-        sliderRoll(count);
-      }
+      slidesLength -= 2;
     }
-  };
-
-  const sliderRoll = (count) => {
-    if (window.innerWidth < 992) {
-      slideMargin = 50;
+    if (count == 0) {
+      count = slidesLength;
+      sliderRoll(count);
     } else {
-      slideMargin = 80;
+      count--;
+      sliderRoll(count);
     }
-    sliderContainer.style.transform = `translate(-${count * (slideWidth + slideMargin)}px)`;
-  };
+  }
 
-  sliderBtnRight.addEventListener("click", slideNext);
-  sliderBtnLeft.addEventListener("click", slidePrev);
+  function sliderRoll(count) {
+    sliderContainer.style.transform = `translate(-${count * (slideWidth + marginSlideNumber)}px)`;
+  }
+
+  sliderBtnRight.addEventListener("click", () => {
+    init();
+    slideNext();
+  });
+  sliderBtnLeft.addEventListener("click", () => {
+    init();
+    slidePrev();
+  });
+  // window.addEventListener("resize", init);
 };
